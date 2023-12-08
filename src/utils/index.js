@@ -1,3 +1,7 @@
+function isNumber(char) {
+  return /^\d$/.test(char);
+}
+
 const sumArrays = (...arrays) => {
   const n = arrays.reduce((max, xs) => Math.max(max, xs.length), 0);
   const result = Array.from({ length: n });
@@ -58,4 +62,4 @@ function mod(n, m) {
   return ((n % m) + m) % m;
 }
 
-export { sumArrays, binarySearch, padNumericArray, lcm_two_numbers, gcd_two_numbers, mod };
+export { isNumber, sumArrays, binarySearch, padNumericArray, lcm_two_numbers, gcd_two_numbers, mod };
