@@ -42,12 +42,12 @@ const padNumericArray = (array, paddingValue, thickness) => {
   return array;
 };
 
-const lcm_two_numbers = (x, y) => {
-  if (typeof x !== 'number' || typeof y !== 'number') return false;
-  return !x || !y ? 0 : Math.abs((x * y) / gcd_two_numbers(x, y));
-};
+function lcm(array)
+{
+  return array.reduce((curr, val) =>  val * curr / gcd(val, curr), array[0]);
+}
 
-const gcd_two_numbers = (x, y) => {
+const gcd = (x, y) => {
   x = Math.abs(x);
   y = Math.abs(y);
   while (y) {
@@ -62,4 +62,4 @@ function mod(n, m) {
   return ((n % m) + m) % m;
 }
 
-export { isNumber, sumArrays, binarySearch, padNumericArray, lcm_two_numbers, gcd_two_numbers, mod };
+export { isNumber, sumArrays, binarySearch, padNumericArray, lcm, gcd, mod };
