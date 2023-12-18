@@ -44,6 +44,7 @@ class Range {
     this.start = start;
     this.end = end;
   }
+
   setStartLength(start, length) {
     this.start = start;
     this.end = start + length - 1;
@@ -93,9 +94,6 @@ class Range {
 
   //Transforms the range if it is fully covered by any of the provided maps
   applyMap(maps){
-    const splitRanges = this.splitByMaps(maps);
-
-
     for (const map of maps){
       if (map.start <= this.start && map.end >= this.end){
         return new Range(map.apply(this.start), map.apply(this.end));
@@ -104,6 +102,7 @@ class Range {
     return this;
   }
 }
+
 class Map {
   constructor(destinationStart, sourceStart, rangeLength) {
     this.start = sourceStart;
